@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: long-init
+#annotations:
+#  argocd.argoproj.io/sync-options: ServerSideApply=true
+#  argocd.argoproj.io/sync-wave: "-2"
+spec:
+  selector:
+    matchLabels:
+      app: long-init
+  template:
+    metadata:
+      labels:
+        app: long-init
+    spec:
+      containers:
+      - name: long-init-done
+        image: busybox
+        command:
+        - while true ; do sleep 15 && echo still here ; done
+  initContainers:
+  - name: init
+    image: busybox
+    command:
+    - sleep 15 && echo wake up
