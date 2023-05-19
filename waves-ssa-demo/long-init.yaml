@@ -18,9 +18,13 @@ spec:
       - name: long-init-done
         image: busybox
         command:
-        - while true ; do sleep 15 && echo still here ; done
-  initContainers:
-  - name: init
-    image: busybox
-    command:
-    - sleep 15 && echo wake up
+        - /bin/sh
+        - -c
+        - 'while true ; do sleep 15 && echo still here ; done'
+      initContainers:
+      - name: init
+        image: busybox
+        command:
+        - /bin/sh
+        - -c
+        - 'sleep 15 && echo wake up'
