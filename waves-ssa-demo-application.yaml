@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/hau21um/waves-ssa-demo.git
     path: waves-ssa-demo
-    targetRevision: main
+    targetRevision: waves_and_ssa
     directory:
       recurse: false
       include: '*.yaml'
