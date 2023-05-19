@@ -22,6 +22,6 @@ spec:
             name: my-cm
             readOnly: true
       volumes:
-        - name: config
+        - name: my-cm
           configMap:
             name: my-cm      
